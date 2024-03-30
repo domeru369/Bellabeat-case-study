@@ -10,7 +10,7 @@ As a data analyst at Bellabeat, a company revolutionizing women’s health with 
 * Analyze user data specifically focused on fitness metrics collected through Fitbit datasets. 
 * Gain and translate insights into actionable marketing strategies for Bellabeat. 
 * Presentation of findings and recommendations to the Bellabeat executive team. 
-* Leverage user data to unlock new growth opportunities/market strategies and propel       Bellabeat towards becoming a major player in the global smart device market.
+* Leverage user data to unlock new growth opportunities/market strategies and propel Bellabeat towards becoming a major player in the global smart device market.
 
 # Data Analysis Process
 # 1. Ask 
@@ -38,3 +38,21 @@ I am using a public data from Kaggle pointed out by Sršen. The FitBit Fitness T
 * I performed Exploratary Data Analysis (EDA) in order to ensure my data is clean by calling out head, str, colnames, rename, glimpse, view functions. By doing this, I ensured that all data types are consistent through out all datasets to enable efficient merging. I  manipulated the date column by extracting weekdays in order to analyze trends in the data in relation to days. I also called out the summary function in order to get summary statistics of the data.
 
   # 4. Analyze
+
+
+
+```
+# load the core library 'tidyverse'
+library(tidyverse)
+
+# read the csv files 
+daily_activity <- read_csv("C:/Users/user/Documents/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+hourly_calories <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlyCalories_merged2.csv")
+weight_info <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/weightLogInfo_merged2.csv")
+hourly_steps <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlySteps_merged2.csv")
+sleep_day <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/sleepDay_merged2.csv")
+```
+  
+  
+  
+  
