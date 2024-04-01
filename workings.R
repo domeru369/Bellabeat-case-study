@@ -3,7 +3,7 @@ library(tidyverse)
 
 
 #read the csv files 
-daily_activity <- read_csv("C:/Users/user/Documents/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+daily_activity <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/dailyActivity_merged.csv")
 hourly_calories <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlyCalories_merged2.csv")
 weight_info <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/weightLogInfo_merged2.csv")
 hourly_steps <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlySteps_merged2.csv")
