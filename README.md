@@ -1,4 +1,4 @@
-# Bellabeat-project
+# Bellabeat Case Study - How Can a Wellness Technology Company Play It Smart?
 
 # About The Company
 Bellabeat, a health-focused tech company founded by Urška Sršen, empowers women with health data through its smart devices. Despite early success and diverse marketing channels, Sršen believes user data holds untapped growth potential. She tasks the marketing analytics team to analyze user behavior and translate those insights into high-level marketing strategies for Bellabeat.
@@ -47,7 +47,7 @@ I am using a public dataset from Kaggle pointed out by Sršen. The FitBit Fitnes
 library(tidyverse)
 
 # read the csv files 
-daily_activity <- read_csv("C:/Users/user/Documents/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+daily_activity <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/dailyActivity_merged.csv")
 hourly_calories <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlyCalories_merged2.csv")
 weight_info <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/weightLogInfo_merged2.csv")
 hourly_steps <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlySteps_merged2.csv")
