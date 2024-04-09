@@ -545,7 +545,8 @@ ggplot(data = final_merged_data, aes(x = TotalMinutesAsleep, y = SedentaryMinute
 * There's a weak negative correlation between sleep duration and sedentary minutes, but it's not a strong relationship. Further investigation into factors like occupation, age, and gender might be needed to understand high sedentary time.
 
 
-# 6. Act (Recommendations)
+# 6. Act 
+## Recommendations
 * Highlight the Sleep Benefits of Activity: Marketing materials can emphasize how increased activity can contribute to better sleep, which is crucial for overall health and well-being.
 * Promote Evening Activity Routines: Encourage users to incorporate short bursts of activity into their evenings (outside of the typical 5pm-6pm peak) to help manage weight and improve overall health.
 * Focus on Holistic Health: Move beyond just steps and emphasize the importance of a balanced lifestyle that includes good sleep, a healthy diet, and regular physical activity of varying intensities.
