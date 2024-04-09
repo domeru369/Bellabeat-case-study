@@ -37,8 +37,10 @@ I am using a public dataset from Kaggle pointed out by Sršen. The FitBit Fitnes
 # 3. Process
 * I chose daily activities, hourly activities(hourly steps and hourly calories), sleep and weight as metrics for this analysis because they provide a more comprehensive picture of user behavior and health.
 * I chose R to perform analysis because it excels at statistical analysis, which is crucial for tasks like examining correlations between sleep, activity, and weight in the Fitbit data. R also offers powerful tools for data visualization through packages like ggplot2.
-* I performed Exploratary Data Analysis (EDA) in order to ensure my data is clean by calling out head, str, colnames, rename, glimpse, view, na, duplicated functions. By doing this, I ensured that there are no missing values, duplicates and  all data types are consistent through out all datasets to enable efficient merging. 
-* I  manipulated the date column by extracting weekdays in order to analyze trends in the data in relation to days. I also called out the summary function in order to get summary statistics of the data which provides a snapshot of the data, offering valuable insights into its central tendencies, spread, and potential issues. 
+* I performed Exploratary Data Analysis (EDA) in order to understand the data better and to check if all data types are consistent through out all datasets to enable efficient merging. 
+* I ensured the data is clean by checking and dropping missing values and duplicates.
+* I  manipulated the date column by extracting weekdays in order to analyze trends in the data in relation to days.
+* I finally merged the data together and called out the summary function in order to get summary statistics of the data which provides a snapshot of the data, offering valuable insights into its central tendencies, spread, and potential issues. 
 
 
 
