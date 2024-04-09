@@ -12,6 +12,8 @@ As a data analyst at Bellabeat, a company revolutionizing women’s health with 
 * Presentation of findings and recommendations to the Bellabeat executive team. 
 * Leverage user data to unlock new growth opportunities/market strategies and propel Bellabeat towards becoming a major player in the global smart device market.
 
+I will follow the 6 data analysis processes which are ask, prepare, process,analyize,share and act.
+
 # Data Analysis Process
 # 1. Ask 
 Sršen asks me to analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart
@@ -501,7 +503,7 @@ ggplot(data = final_merged_data, aes(x = TotalMinutesAsleep, y = SedentaryMinute
 * There's a weak negative correlation between sleep duration and sedentary minutes, but it's not a strong relationship. Further investigation into factors like occupation, age, and gender might be needed to understand high sedentary time.
 
 
-# Recommendations
+# 6. Act (Recommendations)
 * Highlight the Sleep Benefits of Activity: Marketing materials can emphasize how increased activity can contribute to better sleep, which is crucial for overall health and well-being.
 * Promote Evening Activity Routines: Encourage users to incorporate short bursts of activity into their evenings (outside of the typical 5pm-6pm peak) to help manage weight and improve overall health.
 * Focus on Holistic Health: Move beyond just steps and emphasize the importance of a balanced lifestyle that includes good sleep, a healthy diet, and regular physical activity of varying intensities.
