@@ -256,11 +256,11 @@ final_merged_data %>%
 
 
 # 4. Analyze
+### Understanding Activity Level
 
 
 
 ```
-#Understanding Activity Level
 #we will first plot a pie chart to break down the different ways users were active in minutes
 #get the total of each activity minutes 
 total_activity_mins <- final_merged_data %>%
@@ -295,8 +295,10 @@ pie_activity_mins
 
 
 
+
+
+### Exploring potential relationships between variables
 ```
-#exploring potential relationships between variables
 #total steps and very active minutes
 ggplot(data = final_merged_data, aes(x = TotalSteps, y = VeryActiveMinutes)) +
   geom_point() +
@@ -323,10 +325,14 @@ ggplot(data = final_merged_data, aes(x = TotalSteps, y = Calories.x)) +
 
 ![image](https://github.com/domeru369/Bellabeat-project/blob/main/Visualizations/Total%20Steps%20and%20calories%20burned.png)
 
-* There is a positive correlation between total steps and calories burned. 
+* There is a positive correlation between total steps and calories burned.
 
+
+
+
+
+### Week day data
 ```
-#we will create a barplot for daily calories/steps to breakdown the analysis further in week day
 #total number of steps taken by day
 ggplot(final_merged_data, aes(x = weekday, y = TotalSteps)) +
   geom_bar(stat = "identity", fill = "pink") + 
@@ -352,8 +358,10 @@ ggplot(final_merged_data, aes(x = weekday, y = Calories.x)) +
 
 
 
+
+
+### Hourly data 
 ```
-#hourly data 
 #steps in hours
 ggplot(final_merged_data, aes(x = Time, y = StepTotal)) +
   geom_bar(stat = "identity", fill = "purple") + 
@@ -379,8 +387,10 @@ ggplot(final_merged_data, aes(x = Time, y = Calories.y)) +
 
 
 
+
+
+### Sleep patterns and recovery 
 ```
-#sleep patterns and recovery 
 #total time in bed vs total minutes asleep
 ggplot(data = final_merged_data, aes(x = TotalTimeInBed, y = TotalMinutesAsleep)) +
   geom_point() +
@@ -423,8 +433,9 @@ ggplot(data = final_merged_data, aes(x = TotalSteps, y = TotalMinutesAsleep)) +
 
 
 
+
+### Weight info
 ```
-#Weight info
 #Total steps and BMI
 ggplot(data = activity_weight_data, aes(x = TotalSteps, y = BMI)) +
   geom_point() +
@@ -451,9 +462,11 @@ ggplot(data = activity_weight_data, aes(x = Calories, y = BMI)) +
 * There is a  negative relationship between total steps/ calories burned. 
 
 
+
+
+### More Analysis
+* As found in the pie chart earlier, sedentary minutes has the highest proportion than others, I was interested in finding out why that is, so i analyzed sedentary minutes in relation to other variables.
 ```
-#More Analysis
-#as found in the pie chart earlier, sedentary minutes has the highest proportion than others, I was interested in finding out why that is, so i analyzed sedentary minutes in relation to other variables. 
 #average minutes asleep per day
 smd <- ggplot(final_merged_data, aes(x = weekday, y = SedentaryMinutes)) +
   geom_bar(stat = "identity", fill = "orange") +
