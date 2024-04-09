@@ -12,7 +12,7 @@ As a data analyst at Bellabeat, a company revolutionizing women’s health with 
 * Presentation of findings and recommendations to the Bellabeat executive team. 
 * Leverage user data to unlock new growth opportunities/market strategies and propel Bellabeat towards becoming a major player in the global smart device market.
 
-I will follow the 6 data analysis processes which are ask, prepare, process,analyize,share and act.
+I will follow the 6 steps of the data analysis process - Ask, Prepare, Process, Analyize, Share and Act.
 
 # Data Analysis Process
 # 1. Ask 
