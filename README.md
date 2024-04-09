@@ -40,11 +40,9 @@ I am using a public dataset from Kaggle pointed out by Sršen. The FitBit Fitnes
 * I performed Exploratary Data Analysis (EDA) in order to understand the data better and to check if all data types are consistent through out all datasets to enable efficient merging. 
 * I ensured the data is clean by checking and dropping missing values and duplicates.
 * I  manipulated the date column by extracting weekdays in order to analyze trends in the data in relation to days.
-* I finally merged the data together and called out the summary function in order to get summary statistics of the data which provides a snapshot of the data, offering valuable insights into its central tendencies, spread, and potential issues. 
-
-
-
-
+* I finally merged the data together and called out the summary function in order to get summary statistics of the data which provides a snapshot of the data, offering valuable insights into its central tendencies, spread, and potential issues.
+  
+### Loading the core library
 ```
 # load the core library 'tidyverse'
 library(tidyverse)
@@ -55,9 +53,13 @@ hourly_calories <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hou
 weight_info <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/weightLogInfo_merged2.csv")
 hourly_steps <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/hourlySteps_merged2.csv")
 sleep_day <- read_csv("C:/Users/user/Documents/coursera/Fitbit Dataset/sleepDay_merged2.csv")
+```
 
 
-# Data exploration
+
+
+### Data exploration
+```
 #get the top 6 rows of each data
 head(daily_activity)
 head(hourly_calories)
@@ -85,12 +87,16 @@ n_distinct(hourly_calories$Id)
 n_distinct(weight_info$Id)
 n_distinct(hourly_steps$Id)
 n_distinct(sleep_day$Id)
-#there are 33 distinct users in the daily activity, hourly calories and hourly steps data
-#24 distinct users in the sleep day data 
-#and 8 unique users in the weight info data
+```
+* There are 33 distinct users in the daily activity, hourly calories and hourly steps data
+* 24 distinct users in the sleep day data 
+* 8 unique users in the weight info data
 
 
-# Data cleaning
+
+
+### Data cleaning
+```
 #check for duplicates
 sum(duplicated(daily_activity))
 sum(duplicated(hourly_calories))
@@ -98,7 +104,7 @@ sum(duplicated(weight_info))
 sum(duplicated(hourly_steps))
 sum(duplicated(sleep_day))
 
-#there are 3 duplicates in the sleep day data so i drop duplicates
+#distinct sleep day data
 sleep_day1 <- sleep_day %>%
   distinct(.keep_all = TRUE)
 #view the data
@@ -110,7 +116,6 @@ sum(is.na(hourly_calories))
 sum(is.na(weight_info))
 sum(is.na(hourly_steps))
 sum(is.na(sleep_day1))
-#weight data has 65 missing values from the fat column
 
 #drop the fat column
 weight_info1 <- weight_info[colSums(is.na(weight_info)) == 0]
@@ -133,8 +138,16 @@ hourly_steps %>%
 sleep_day1%>% 
   select(SleepDay, TotalSleepRecords, TotalMinutesAsleep,TotalTimeInBed) %>% 
   summary()
+```
+* There are 3 duplicates in the sleep day data so I dropped the duplicates.
+* Weight data has 65 missing values from the fat column so I dropped the fat column
+* The other data has no duplicates or missing values
 
-#Before merging the dataframes, we need to ensure their date columns speak the same language, meaning we will rename the date columns in all dataframes to a consistent format.
+
+
+###  Changing date Column names  
+* Before merging the dataframes, we need to ensure their date columns speak the same language, meaning we will rename the date columns in all dataframes to a consistent format.
+```
 daily_activity1 <- daily_activity %>% 
   rename(Date=ActivityDate)
 hourly_calories1 <- hourly_calories %>% 
@@ -145,10 +158,13 @@ hourly_steps1 <-  hourly_steps %>%
   rename(Date=ActivityHour)
 sleep_day2 <- sleep_day1 %>% 
   rename(Date=SleepDay)
+```
 
 
-# Converting Date Column
-#note : no need to change the time column data type because its already in the appropriate time datatype
+
+### Converting Date Column
+* note : no need to change the time column data type because its already in the appropriate time datatype
+```
 #convert the date format of daily activity
 daily_activity_cleaned <- daily_activity1 %>% 
   mutate(Date=as_date(Date,format="%m/%d/%Y"))
@@ -183,9 +199,13 @@ sleepday_cleaned <- sleep_day2 %>%
 #confirm the format of the date column  
 str(sleepday_cleaned)
 View(sleepday_cleaned)
+```
 
 
-# Merging the dataframes 
+
+
+### Merging the dataframes 
+```
 #merge the daily activity and sleepday data together
 daily_sleep_merged_data <- merge(daily_activity_cleaned,sleepday_cleaned, 
                                  by=c('Id','Date'))
@@ -205,17 +225,6 @@ head(final_merged_data)
 View(final_merged_data)
 colnames(final_merged_data)
 
-#we will extract week day from the date column
-final_merged_data$weekday <- wday(final_merged_data$Date, label=TRUE, abbr=FALSE)
-View(final_merged_data)
-
-#get summary statistics of the merged data
-final_merged_data %>% 
-  select(TotalSteps,TotalDistance,SedentaryMinutes,Calories.x,Calories.y,
-         VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes,
-         TotalMinutesAsleep, TotalTimeInBed, StepTotal,TotalSleepRecords,weekday) %>%
-  summary()
-
 #merge daily activities with weight info 
 #i did not merge the weight info to the final dataset in order to avoid reduction of the data because only 8 distinct users gave weight information 
 activity_weight_data <- merge(daily_activity_cleaned,weight_info_cleaned, 
@@ -223,6 +232,25 @@ activity_weight_data <- merge(daily_activity_cleaned,weight_info_cleaned,
 head(activity_weight_data)
 View(activity_weight_data)
 colnames(activity_weight_data)
+```
+
+
+
+### Extract week day from the date column
+```
+final_merged_data$weekday <- wday(final_merged_data$Date, label=TRUE, abbr=FALSE)
+View(final_merged_data)
+```
+
+
+
+### Summary statistics of the merged data
+```
+final_merged_data %>% 
+  select(TotalSteps,TotalDistance,SedentaryMinutes,Calories.x,Calories.y,
+         VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes,
+         TotalMinutesAsleep, TotalTimeInBed, StepTotal,TotalSleepRecords,weekday) %>%
+  summary()
 ```
 
 
