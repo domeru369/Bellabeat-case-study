@@ -205,11 +205,15 @@ head(final_merged_data)
 View(final_merged_data)
 colnames(final_merged_data)
 
+#we will extract week day from the date column
+final_merged_data$weekday <- wday(final_merged_data$Date, label=TRUE, abbr=FALSE)
+View(final_merged_data)
+
 #get summary statistics of the merged data
 final_merged_data %>% 
   select(TotalSteps,TotalDistance,SedentaryMinutes,Calories.x,Calories.y,
          VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes,
-         TotalMinutesAsleep, TotalTimeInBed, StepTotal,TotalSleepRecords) %>%
+         TotalMinutesAsleep, TotalTimeInBed, StepTotal,TotalSleepRecords,weekday) %>%
   summary()
 
 #merge daily activities with weight info 
@@ -294,11 +298,7 @@ ggplot(data = final_merged_data, aes(x = TotalSteps, y = Calories.x)) +
 * There is a positive correlation between total steps and calories burned. 
 
 ```
-#we will create a barplot for daily calories/steps and hourly calories/steps to breakdown the analysis further in hours
-#we will first extract week day from the date column
-final_merged_data$weekday <- wday(final_merged_data$Date, label=TRUE, abbr=FALSE)
-View(final_merged_data)
-
+#we will create a barplot for daily calories/steps to breakdown the analysis further in week day
 #total number of steps taken by day
 ggplot(final_merged_data, aes(x = weekday, y = TotalSteps)) +
   geom_bar(stat = "identity", fill = "pink") + 
