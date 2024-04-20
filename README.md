@@ -3,7 +3,7 @@
 # About The Company
 Bellabeat, a health-focused tech company founded by Urška Sršen, empowers women with health data through its smart devices. Despite early success and diverse marketing channels, Sršen believes user data holds untapped growth potential. She tasks the marketing analytics team to analyze user behavior and translate those insights into high-level marketing strategies for Bellabeat.
 
-# Scenerio
+# Scenario
 As a data analyst at Bellabeat, a company revolutionizing women’s health with its smart devices, I’m tasked with delving into user data. Our goal? Unearth hidden gems within fitness data specific to our Bellabeat product. This user behavior analysis will be the key to unlocking new market growth for Bellabeat. By understanding how women currently utilize their smart devices, I can translate those insights into high-level marketing strategies, presented directly to the Bellabeat executive team. This data-driven approach will propel Bellabeat towards becoming a major force in the global smart device market.
 
 # Business Task
